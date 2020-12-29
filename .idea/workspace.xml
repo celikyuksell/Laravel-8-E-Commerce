@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83726143-211b-4dbb-94c8-53090f0bfd5a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/_content.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/_footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/_haader.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/_sidebar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/guestx.blade.php" afterDir="false" />
+    <list default="true" id="83726143-211b-4dbb-94c8-53090f0bfd5a" name="Default Changelist" comment="Admin Template Implemantation">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/_blank.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/category_add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/category_edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product_add.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product_edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TEMPS/AdminLTE-3.0.5/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TEMPS/AdminLTE-3.0.5/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/_haader.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/_haader.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/_sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -155,19 +161,26 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mariadb&#10;mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/layouts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Php\Laravel3j\resources\views\admin" />
       <recent name="C:\Php\Laravel3j\resources\views\layouts" />
       <recent name="C:\Php\Laravel3j\resources\views\home" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Php\Laravel3j\app\Http\Controllers\Admin" />
+      <recent name="C:\Php\Laravel3j\database\factories" />
+      <recent name="C:\Php\Laravel3j\app\Models" />
     </key>
   </component>
   <component name="RunManager">
@@ -199,6 +212,16 @@
       <workItem from="1607020404716" duration="1466000" />
       <workItem from="1607120746773" duration="286000" />
       <workItem from="1608139646569" duration="9272000" />
+      <workItem from="1608228076042" duration="1675000" />
+      <workItem from="1608232491635" duration="2936000" />
+      <workItem from="1608411793946" duration="33000" />
+      <workItem from="1608745270319" duration="10266000" />
+      <workItem from="1608817481962" duration="6312000" />
+      <workItem from="1608832793527" duration="5900000" />
+      <workItem from="1608897924630" duration="3724000" />
+      <workItem from="1609004932004" duration="677000" />
+      <workItem from="1609193828138" duration="5673000" />
+      <workItem from="1609243086247" duration="5575000" />
     </task>
     <task id="LOCAL-00001" summary="Index Changed">
       <created>1607020591599</created>
@@ -207,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607020591599</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Admin Template Implemantation">
+      <created>1608228271550</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608228271550</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,37 +245,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Index Changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Index Changed" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="530" y="181" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605808886692">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="530" y="181" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1600.870/1600.-174.1920.1050@0.0.1600.870" timestamp="1605808886692" />
-    <state x="425" y="2" key="CommitChangelistDialog2" timestamp="1607020583146">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="425" y="2" key="CommitChangelistDialog2/0.0.1600.870/1600.-174.1920.1050@0.0.1600.870" timestamp="1607020583146" />
-    <state x="580" y="189" key="FileChooserDialogImpl" timestamp="1606403727139">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="580" y="189" key="FileChooserDialogImpl/0.0.1600.870/1600.-182.1920.1050@0.0.1600.870" timestamp="1606403727139" />
-    <state x="761" y="432" key="NewPhpFileDialog" timestamp="1608142074898">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="634" y="358" key="NewPhpFileDialog/0.0.1600.870/1600.-174.1920.1050@0.0.1600.870" timestamp="1606416272829" />
-    <state x="761" y="432" key="NewPhpFileDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1608142074898" />
-    <state x="195" y="57" key="SettingsEditor" timestamp="1607020473907">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="195" y="57" key="SettingsEditor/0.0.1600.870/1600.-174.1920.1050@0.0.1600.870" timestamp="1607020473907" />
-    <state x="392" y="167" key="Vcs.Push.Dialog.v2" timestamp="1607020632764">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="392" y="167" key="Vcs.Push.Dialog.v2/0.0.1600.870/1600.-174.1920.1050@0.0.1600.870" timestamp="1607020632763" />
-    <state x="616" y="243" key="run.anything.popup" timestamp="1608148244330">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1608148244330" />
+    <MESSAGE value="Admin Template Implemantation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin Template Implemantation" />
   </component>
 </project>
