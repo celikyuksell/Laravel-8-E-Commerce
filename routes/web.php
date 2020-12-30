@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home2', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::redirect('/anasayfa', '/home')->name('anasayfa');
@@ -63,3 +63,5 @@ Route::get('/admin/logout', [HomeController::class, 'logout'])->name('admin_logo
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+

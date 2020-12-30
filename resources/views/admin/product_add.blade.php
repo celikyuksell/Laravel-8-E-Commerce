@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 
 @section('title', 'Add Product')
+@section('javascript')
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+@endsection
 
 @section('content')
     <!-- Content Wrapper. Contains page content -->
@@ -35,7 +43,7 @@
 
 
                     <!-- form start -->
-                    <form role="form" action="{{route('admin_product_store')}}" method="post">
+                    <form role="form" action="{{route('admin_product_store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
@@ -79,13 +87,23 @@
                             </div>
                             <div class="form-group">
                                 <label >Detail</label>
-
-                                <input type="text" name="detail" class="form-control"   >
+                                <textarea id="summernote" name="detail" ></textarea>
+                                <script>
+                                    $(document).ready(function() {
+                                        $('#summernote').summernote();
+                                    });
+                                </script>
                             </div>
                             <div class="form-group">
                                 <label  >Slug</label>
                                 <input type="text" name="slug" class="form-control"   >
                             </div>
+
+                            <div class="form-group">
+                                <label  >Image</label>
+                                <input type="file" name="image"  class="form-control">
+                            </div>
+
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control select2" name="status" style="width: 100%;">
