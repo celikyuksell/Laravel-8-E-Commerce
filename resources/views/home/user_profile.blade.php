@@ -1,8 +1,7 @@
 @extends('layouts.home')
 
-@section('title', 'About Us -' . $setting->title)
-@section('description'){{ $setting->description }} @endsection
-@section('keywords',$setting->keywords)
+@section('title', 'User Profile')
+
 
 @section('content')
 
@@ -10,7 +9,7 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="{{route('home')}}">Home</a></li>
-                <li class="active">About Us</li>
+                <li class="active">User Profile</li>
             </ul>
         </div>
     </div>
@@ -22,9 +21,17 @@
         <div class="container">
             <!-- row -->
             <div class="row">
+                <!-- ASIDE -->
+                <div id="aside" class="col-md-2">
+                    @include('home.usermenu')
+                </div>
+                <!-- /ASIDE -->
 
-                {!! $setting->aboutus !!}
-
+                <!-- MAIN -->
+                <div id="main" class="col-md-10">
+                    @include('profile.show')
+                </div>
+                <!-- /MAIN -->
             </div>
             <!-- /row -->
         </div>

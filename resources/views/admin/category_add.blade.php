@@ -39,12 +39,12 @@
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
-                                <label >Parent</label>
+                                <label >Parent Category</label>
 
                                 <select class="form-control select2" name="parent_id" style="width: 100%;">
                                     <option value="0" selected="selected">Main Category</option>
-                                    @foreach ( $datalist as $rs)
-                                        <option value="{{ $rs->id}}">{{ $rs->title}}</option>
+                                    @foreach($datalist as $rs)
+                                        <option value="{{ $rs->id }}"> {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }} </option>
                                     @endforeach
                                 </select>
 

@@ -17,7 +17,7 @@
             <div class="info">
                 @auth
                     <a href="#" class="d-block">{{ Auth::user()->name }} </a>
-                    <a href="{{ route('admin_logout') }}" class="d-block">Logout</a>
+                    <a href="{{ route('logout') }}" class="d-block">Logout</a>
                 @endauth
             </div>
         </div>
@@ -44,6 +44,14 @@
                     </a>
                 </li>
 
+                <li class="nav-item has-treeview">
+                    <a href="{{ route('admin_message') }}" class="nav-link">
+                        <p>
+                            <i class="nav-icon fas fa-copy"></i>
+                            Contact Messages
+                        </p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -53,9 +61,9 @@
                 </li>
                 <li class="nav-header">LABELS</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{route('admin_setting')}}" class="nav-link">
                         <i class="nav-icon far fa-circle text-danger"></i>
-                        <p class="text">Important</p>
+                        <p class="text">Settings</p>
                     </a>
                 </li>
                 <li class="nav-item">

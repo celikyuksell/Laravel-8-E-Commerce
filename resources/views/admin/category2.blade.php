@@ -34,6 +34,55 @@
 
                     <!-- /.card-header -->
                     <div class="card-body">
+                        #  $parentCategories = Category::where('parent_id', '=', 0)->with('children')->get();
+                        @foreach($parentCategories as $rs)
+                            <ul>
+                                <li><a href="#">{{$rs->title}}</a></li>
+                                @if(count($rs->subcategory))
+                                    @include('admin.categorytree',['subcategories' => $rs->subcategory])
+                                @endif
+                            </ul>
+                        @endforeach
+
+                        <select>
+                            @foreach($parentCategories as $categories)
+                                <optgroup label="{{ $categories->title }}">
+                                    @foreach($categories->children as $category)
+                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                    @endforeach
+                                </optgroup>
+                            @endforeach
+                        </select>
+
+                         Son çalışan kod açılan kutu select
+                        $datalist = Category::with('children')->get();
+                        <select class="form-control select2" name="parent_id" style="width: 100%;">
+                            <option value="0" selected="selected">Main Category</option>
+                            @foreach($datalist as $rs)
+                                {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}
+                                <option value="{{ $rs->id }}">{{ $rs->title }}</option>
+                                @foreach($rs->children as $rs)
+                                    <option value="{{ $rs->id }}"> -- {{ $rs->title }}</option>
+                                @endforeach
+
+                            @endforeach
+                        </select>
+
+                        Açılır menu
+                        $categories = Category::where('parent_id', '=', 0)->with('children')->get();
+                        @foreach($categories as $rs)
+                            <ul>
+                                <li><a href="#">{{$rs->title}}</a></li>
+                                @if(count($rs->children))
+                                    @include('admin.categorytree',['subcategories' => $rs->children])
+                                @endif
+                            </ul>
+                        @endforeach
+
+
+
+
+
 
 
                         <table id="example1" class="table table-bordered table-striped">
@@ -52,7 +101,14 @@
                                 <tr>
                                     <td> {{ $rs->id}}</td>
                                     <td>
-                                        {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}
+                                        {{ $rs->parent_id}}
+
+                                        @if(count($rs->parents))
+                                            {{$rs->parent->title }} {{ $rs->parents->implode('-') }} <strong>-></strong> {{ $rs->title }}
+                                        @else
+                                            {{ $rs->title }}
+                                        @endif
+
                                     </td>
 
                                     <td>{{ $rs->title}}</td>
