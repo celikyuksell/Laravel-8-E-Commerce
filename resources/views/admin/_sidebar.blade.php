@@ -54,9 +54,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route('admin_review') }}" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>Level 1</p>
+                        <p>Reviews</p>
                     </a>
                 </li>
                 <li class="nav-header">LABELS</li>

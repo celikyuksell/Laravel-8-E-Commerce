@@ -79,6 +79,7 @@
 
                         <ul class="custom-menu">
                             <li><a href="{{ route('myprofile') }}"><i class="fa fa-user-o"></i> My Account</a></li>
+                            <li><a href="{{route('myreviews')}}"><i class="fa fa-heart-o"></i> My Reviews</a></li>
                             <li><a href="#"><i class="fa fa-heart-o"></i> My Wishlist</a></li>
                             <li><a href="#"><i class="fa fa-exchange"></i> Compare</a></li>
                             <li><a href="#"><i class="fa fa-check"></i> Checkout</a></li>

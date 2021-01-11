@@ -29,24 +29,24 @@
                     <div class="col-md-6">
                         <div id="product-main-view">
                             <div class="product-view">
-                                <img src="{{ Storage::url($data->image)}}" style="height: 400px" alt="">
+                                <img src="{{ Storage::url($data->image)}}" style="height: 300px" alt="">
                             </div>
 
                             @foreach($datalist as $rs)
 
                                 <div class="product-view">
-                                    <img src="{{ Storage::url($rs->image)}}" style="height: 400px" alt="">
+                                    <img src="{{ Storage::url($rs->image)}}" style="height: 300px" alt="">
                                 </div>
                             @endforeach
 
                         </div>
                         <div id="product-view">
                             <div class="product-view">
-                                <img src="{{ Storage::url($data->image)}}" style="height: 100px" alt="">
+                                <img src="{{ Storage::url($data->image)}}" style="height: 75px" alt="">
                             </div>
                             @foreach($datalist as $rs)
                                 <div class="product-view">
-                                    <img src="{{ Storage::url($rs->image)}}" style="height: 100px" alt="">
+                                    <img src="{{ Storage::url($rs->image)}}" style="height: 75px" alt="">
                                 </div>
                             @endforeach
                         </div>
@@ -60,14 +60,18 @@
                             <h2 class="product-name">{{$data->title}}</h2>
                             <h3 class="product-price">{{$data->price }} <del class="product-old-price">{{$data->price * 1.2}}</del></h3>
                             <div>
+                                @php
+                                    $avgrev = \App\Http\Controllers\HomeController::avrgreview($data->id);
+                                    $countreview = \App\Http\Controllers\HomeController::countreview($data->id);
+                                @endphp
                                 <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o empty"></i>
+                                    <i class="fa fa-star @if ($avgrev<1) -o empty @endif"></i>
+                                    <i class="fa fa-star @if ($avgrev<2) -o empty @endif"></i>
+                                    <i class="fa fa-star @if ($avgrev<3) -o empty @endif"></i>
+                                    <i class="fa fa-star @if ($avgrev<4) -o empty @endif"></i>
+                                    <i class="fa fa-star @if ($avgrev<5) -o empty @endif"></i>
                                 </div>
-                                <a href="#">3 Review(s) / Add Review</a>
+                                <a href="#tab2">{{ $countreview  }} Review(s) {{$avgrev }}  / Add Review</a>
                             </div>
                             <p><strong>Availability:</strong> In Stock</p>
                             <p><strong>Brand:</strong> E-SHOP</p>
@@ -107,7 +111,7 @@
                             <ul class="tab-nav">
                                 <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
                                 <li><a data-toggle="tab" href="#tab1">Details</a></li>
-                                <li><a data-toggle="tab" href="#tab2">Reviews (3)</a></li>
+                                <li><a data-toggle="tab" href="#tab2">Reviews ({{ $countreview  }})</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div id="tab1" class="tab-pane fade in active">
@@ -120,59 +124,28 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="product-reviews">
-                                                <div class="single-review">
-                                                    <div class="review-heading">
-                                                        <div><a href="#"><i class="fa fa-user-o"></i> John</a></div>
-                                                        <div><a href="#"><i class="fa fa-clock-o"></i> 27 DEC 2017 / 8:0 PM</a></div>
-                                                        <div class="review-rating pull-right">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o empty"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="review-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute
-                                                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                                    </div>
-                                                </div>
 
+                                              @foreach($reviews as $rs)
                                                 <div class="single-review">
                                                     <div class="review-heading">
-                                                        <div><a href="#"><i class="fa fa-user-o"></i> John</a></div>
-                                                        <div><a href="#"><i class="fa fa-clock-o"></i> 27 DEC 2017 / 8:0 PM</a></div>
+                                                        <div><a href="#"> <i class="fa fa-user-o"></i> {{$rs->user->name}}</a> </div>
+                                                        <div><a href="#"><i class="fa fa-clock-o"></i> {{$rs->created_at}}</a></div>
                                                         <div class="review-rating pull-right">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o empty"></i>
+                                                            <i class="fa fa-star @if ($rs->rate<1) -o empty @endif"></i>
+                                                            <i class="fa fa-star @if ($rs->rate<2) -o empty @endif"></i>
+                                                            <i class="fa fa-star @if ($rs->rate<3) -o empty @endif"></i>
+                                                            <i class="fa fa-star @if ($rs->rate<4) -o empty @endif"></i>
+                                                            <i class="fa fa-star @if ($rs->rate<5) -o empty @endif"></i>
                                                         </div>
                                                     </div>
                                                     <div class="review-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute
-                                                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                                        <strong>{{$rs->subject}}</strong>
+                                                        <p>{{$rs->review}}</p>
                                                     </div>
                                                 </div>
+                                                @endforeach
 
-                                                <div class="single-review">
-                                                    <div class="review-heading">
-                                                        <div><a href="#"><i class="fa fa-user-o"></i> John</a></div>
-                                                        <div><a href="#"><i class="fa fa-clock-o"></i> 27 DEC 2017 / 8:0 PM</a></div>
-                                                        <div class="review-rating pull-right">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o empty"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="review-body">
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute
-                                                            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                                    </div>
-                                                </div>
+
 
                                                 <ul class="reviews-pages">
                                                     <li class="active">1</li>
@@ -184,12 +157,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <h4 class="text-uppercase">Write Your Review</h4>
-                                            <p>Your email address will not be published.</p>
-
                                                 @livewire('review', ['id' => $data->id])
-
-
-
                                         </div>
                                     </div>
 

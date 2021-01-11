@@ -4,7 +4,7 @@
     <ul class="list-links">
         <li><a href="{{route('myprofile')}}">My Profile</a></li>
         <li><a href="#">My Orders</a></li>
-        <li><a href="#">My Reviews</a></li>
+        <li><a href="{{route('myreviews')}}">My Reviews</a></li>
         <li><a href="#">My Shopcart</a></li>
         <li><a href="#">My Messages</a></li>
         <li><a href="{{route('logout')}}">Logout</a></li>

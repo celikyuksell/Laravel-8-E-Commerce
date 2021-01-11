@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Models\Messsage;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,14 @@ class HomeController extends Controller
     public static function getsetting()
     {
         return Setting::first();
+    }
+    public static function countreview($id)
+    {
+        return Review::where('product_id',  $id)->count();
+    }
+    public static function avrgreview($id)
+    {
+        return Review::where('product_id',  $id)->average('rate');
     }
 
 
@@ -52,9 +61,10 @@ class HomeController extends Controller
     {
         $data = Product::find($id);
         $datalist = Image::where('product_id',$id)->get();
+        $reviews = Review::where('product_id',$id)->get();
         #print_r($data);
         #exit();
-        return view('home.product_detail',['data'=>$data,'datalist'=>$datalist]);
+        return view('home.product_detail',['data'=>$data,'datalist'=>$datalist,'reviews'=>$reviews]);
     }
 
     public function getproduct(Request $request)
