@@ -3,6 +3,15 @@
 @section('title', $data->title)
 @section('description'){{ $data->description }} @endsection
 @section('keywords',$data->keywords)
+@section('footerjs')
+    <!-- jQuery Plugins -->
+    <script src="{{ asset('assets')}}/js/jquery.min.js"></script>
+    <script src="{{ asset('assets')}}/js/bootstrap.min.js"></script>
+    <script src="{{ asset('assets')}}/js/slick.min.js"></script>
+    <script src="{{ asset('assets')}}/js/nouislider.min.js"></script>
+    <script src="{{ asset('assets')}}/js/jquery.zoom.min.js"></script>
+    <script src="{{ asset('assets')}}/js/main.js"></script>
+@endsection
 
 @section('content')
 

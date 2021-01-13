@@ -11,7 +11,7 @@
                 <ul class="header-top-links">
                     <li><a href="#">Store</a></li>
                     <li><a href="#">Newsletter</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="{{route('faq')}}">FAQ</a></li>
                     <li class="dropdown default-dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ENG <i class="fa fa-caret-down"></i></a>
                         <ul class="custom-menu">
@@ -52,9 +52,8 @@
                         @livewire('search')
                         <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
                     </form>
-                    @section('footerjs')
-                        @livewireScripts
-                    @endsection
+
+                    @livewireScripts
 
                 </div>
                 <!-- /Search -->
