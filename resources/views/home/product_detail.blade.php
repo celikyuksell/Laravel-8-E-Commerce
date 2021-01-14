@@ -3,15 +3,7 @@
 @section('title', $data->title)
 @section('description'){{ $data->description }} @endsection
 @section('keywords',$data->keywords)
-@section('footerjs')
-    <!-- jQuery Plugins -->
-    <script src="{{ asset('assets')}}/js/jquery.min.js"></script>
-    <script src="{{ asset('assets')}}/js/bootstrap.min.js"></script>
-    <script src="{{ asset('assets')}}/js/slick.min.js"></script>
-    <script src="{{ asset('assets')}}/js/nouislider.min.js"></script>
-    <script src="{{ asset('assets')}}/js/jquery.zoom.min.js"></script>
-    <script src="{{ asset('assets')}}/js/main.js"></script>
-@endsection
+
 
 @section('content')
 
@@ -102,11 +94,14 @@
                             </div>
 
                             <div class="product-btns">
-                                <div class="qty-input">
-                                    <span class="text-uppercase">QTY: </span>
-                                    <input class="input" type="number">
-                                </div>
-                                <a href="{{route('addtocart',['id' => $rs->id])}}" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+                                <form action="{{route('user_shopcart_add',['id' => $data->id])}}" method="post">
+                                    @csrf
+                                    <div class="qty-input">
+                                        <span class="text-uppercase">QTY: </span>
+                                        <input class="input" name="quantity" type="number" value="1" max="{{$data->quantity}}">
+                                    </div>
+                                    <button type="submit"  class="primary-btn add-to-cart" ><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                </form>
                                 <div class="pull-right">
                                     <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                                     <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
@@ -134,24 +129,24 @@
                                         <div class="col-md-6">
                                             <div class="product-reviews">
 
-                                              @foreach($reviews as $rs)
-                                                <div class="single-review">
-                                                    <div class="review-heading">
-                                                        <div><a href="#"> <i class="fa fa-user-o"></i> {{$rs->user->name}}</a> </div>
-                                                        <div><a href="#"><i class="fa fa-clock-o"></i> {{$rs->created_at}}</a></div>
-                                                        <div class="review-rating pull-right">
-                                                            <i class="fa fa-star @if ($rs->rate<1) -o empty @endif"></i>
-                                                            <i class="fa fa-star @if ($rs->rate<2) -o empty @endif"></i>
-                                                            <i class="fa fa-star @if ($rs->rate<3) -o empty @endif"></i>
-                                                            <i class="fa fa-star @if ($rs->rate<4) -o empty @endif"></i>
-                                                            <i class="fa fa-star @if ($rs->rate<5) -o empty @endif"></i>
+                                                @foreach($reviews as $rs)
+                                                    <div class="single-review">
+                                                        <div class="review-heading">
+                                                            <div><a href="#"> <i class="fa fa-user-o"></i> {{$rs->user->name}}</a> </div>
+                                                            <div><a href="#"><i class="fa fa-clock-o"></i> {{$rs->created_at}}</a></div>
+                                                            <div class="review-rating pull-right">
+                                                                <i class="fa fa-star @if ($rs->rate<1) -o empty @endif"></i>
+                                                                <i class="fa fa-star @if ($rs->rate<2) -o empty @endif"></i>
+                                                                <i class="fa fa-star @if ($rs->rate<3) -o empty @endif"></i>
+                                                                <i class="fa fa-star @if ($rs->rate<4) -o empty @endif"></i>
+                                                                <i class="fa fa-star @if ($rs->rate<5) -o empty @endif"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="review-body">
+                                                            <strong>{{$rs->subject}}</strong>
+                                                            <p>{{$rs->review}}</p>
                                                         </div>
                                                     </div>
-                                                    <div class="review-body">
-                                                        <strong>{{$rs->subject}}</strong>
-                                                        <p>{{$rs->review}}</p>
-                                                    </div>
-                                                </div>
                                                 @endforeach
 
 
@@ -166,7 +161,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <h4 class="text-uppercase">Write Your Review</h4>
-                                                @livewire('review', ['id' => $data->id])
+                                            @livewire('review', ['id' => $data->id])
                                         </div>
                                     </div>
 
