@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title','My Shopcart')
+@section('title','Order Items')
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="{{route('home')}}">Home</a></li>
-                <li class="active">Shopcart</li>
+                <li class="active">Order Items</li>
             </ul>
         </div>
     </div>
@@ -39,8 +39,8 @@
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Quantity</th>
                                 <th class="text-center">Total</th>
-                                <th class="text-right"></th>
-                                <th  > </th>
+                                <th class="text-right">Status</th>
+                                <th>Note </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -57,53 +57,27 @@
                                     <td> <a href="{{route('product',['id' => $rs->product->id,'slug' => $rs->product->slug ])}}">
                                             {{ $rs->product->title}}</a>
                                     </td>
-                                    </td>
+
                                     <td>{{ $rs->product->price}}</td>
-                                    <td>
-                                        <form action="{{route('user_shopcart_update',['id' => $rs->id])}}" method="post">
-                                            @csrf
-                                            <input  name="quantity" type="number" value="{{$rs->quantity}}" min="1" max="{{$rs->product->quantity}}" onchange="this.form.submit()">
-                                        </form>
-
-                                    </td>
-                                    <td>{{ $rs->product->price * $rs->quantity}}</td>
-
-
-                                    <td>
-                                        <a href="{{route('user_shopcart_delete', ['id' => $rs->id])}}"  onclick="return confirm('Delete ! Are you sure?')" > <img src="{{asset('assets/admin/images')}}/delete.png" height="25"></a>
-
+                                    <td> {{$rs->quantity}}</td>
+                                    <td>{{ $rs->amount}}</td>
+                                    <td>{{ $rs->status}}</td>
+                                    <td>{{ $rs->note}}</td>
                                     </td>
                                 </tr>
-                                @php
-                                    $total += $rs->product->price * $rs->quantity;
-                                @endphp
+
                             @endforeach
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th class="empty" colspan="3"></th>
+                                <th class="empty" colspan="2"></th>
                                 <th>SUBTOTAL</th>
-                                <th colspan="2" class="sub-total">${{$total}}</th>
+                                <th colspan="2" class="sub-total">${{$rs->order->total}}</th>
                             </tr>
-                            <tr>
-                                <th class="empty" colspan="3"></th>
-                                <th>SHIPING</th>
-                                <td colspan="2">Free Shipping</td>
-                            </tr>
-                            <tr>
-                                <th class="empty" colspan="3"></th>
-                                <th>TOTAL</th>
-                                <th colspan="2" class="total">${{$total}}</th>
-                            </tr>
+
                             </tfoot>
                         </table>
-                        <form action="{{route('user_order_add')}}" method="post">
-                            @csrf
-                            <input type="hidden" name="total" value="{{$total}}">
-                            <div class="pull-right">
-                                <button type="submit" class="primary-btn">Place Order</button>
-                            </div>
-                        </form>
+
                     </div>
                     <!-- /.card-body -->
 
