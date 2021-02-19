@@ -12,7 +12,10 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('assets')}}/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                @if (Auth::user()->profile_photo_path)
+                    <img src="{{ Storage::url(Auth::user()->profile_photo_path)}}" class="img-circle elevation-2" alt="User Image">
+                @endif
+
             </div>
             <div class="info">
                 @auth
@@ -65,6 +68,63 @@
                         <i class="fas fa-circle nav-icon"></i>
                         <p>FAQ</p>
                     </a>
+                </li>
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-shopping-cart"></i>
+                        <p>
+                            Orders
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin_orders')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>All Orders</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin_order_list',['status'=>'new'])}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>New Orders</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin_order_list',['status'=>'accepted'])}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Accepted Orders</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('admin_order_list',['status'=>'canceled'])}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Canceled Orders</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('admin_order_list',['status'=>'shipping'])}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Shipping Orders</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('admin_order_list',['status'=>'completed'])}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Completed Orders</p>
+                            </a>
+                        </li>
+                    </ul>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin_users') }}" class="nav-link">
+                        <i class="fas fa-user nav-icon"></i>
+                        <p>Users</p>
+                    </a>
+                </li>
                 </li>
 
                 <li class="nav-header">LABELS</li>

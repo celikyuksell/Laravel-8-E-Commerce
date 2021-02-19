@@ -28,10 +28,7 @@
 
                 <!-- Default box -->
                 <div class="card col-md-10">
-                    <div class="card-header">
-                        <a href="{{route('user_product_add')}}"  type="button" class="btn btn-block btn-info" style="width: 200px">Add Product</a>
-                        @include('home.message')
-                    </div>
+
                     <div class="card">
 
                         <!-- /.card-header -->
