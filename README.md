@@ -1,20 +1,61 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-<br>
-This project is an E-commerce website and has been prepared using the Php Laravel 8 framework.<br>
-The project consists of e-commerce web page and admin panel.<br>
-The respective templates are in the TEMPS folder.<br>
-Turkish Youtube Video Training Address of the Project:<br>
-https://www.youtube.com/watch?v=UnNHWRenYTA&list=PLIUezwWmVtFX3aoVpOh5ZVn_EtKuX8fXw<br>
-<br>
-Bu proje E-ticaret web sitesi olup, Php Laravel 8 framework'ü kullanılarak hazırlanmıştır.<br>
-Proje Eticaret web sayfası ve admin panelinden oluşmaktadır.<br>
-İlgili templateler TEMPS  klasöründedir.<br>
-Projenin Türkçe Youtube Video Eğitim Adresi : <br>
-https://www.youtube.com/watch?v=UnNHWRenYTA&list=PLIUezwWmVtFX3aoVpOh5ZVn_EtKuX8fXw<br>
+# PHP Laravel 5.6 E‑Commerce
+
+A basic e-commerce web application built with PHP and Laravel 5.6, accompanied by a step‑by‑step YouTube playlist!
+
+## 🎥 YouTube Tutorial
+Follow the development process on YouTube:  
+https://www.youtube.com/playlist?list=PLIUezwWmVtFXa9JcBeUcSbze-_sS-U8Pg
+
+## 🚀 Features
+- 🛒 Product catalog and shopping cart
+- 🧑‍💻 User registration, login & profile
+- 🔎 Category-based search and filtering
+- 💳 Order placement and checkout flow
+- 📧 Email notifications (order confirmation)
+- 🛠️ Basic admin panel (manage products/orders)
+- 🧪 Laravel features: Eloquent, Blade, Middleware, Validation
+
+## 🛠 Tech Stack
+- PHP 7.x / Laravel 5.6
+- MySQL / MariaDB (via `.env`)
+- Blade templating + Bootstrap (front-end)
+- Optional: Vue.js components
+- yarn mix (Webpack) for assets
+
+## 📦 Installation
+1. **Clone repo**  
+   ```bash
+   git clone https://github.com/celikyuksell/Php-Laravel-5.6-E-Commerce.git
+   cd Php-Laravel-5.6-E-Commerce
+   ```
+2. **Install PHP dependencies**  
+   ```bash
+   composer install
+   ```
+3. **Install JS dependencies**  
+   ```bash
+   npm install
+   ```
+4. **Copy `.env.example` to `.env`** and set `DATABASE_URL`
+5. **Generate app key**  
+   ```bash
+   php artisan key:generate
+   ```
+6. **Run migrations**  
+   ```bash
+   php artisan migrate
+   ```
+7. **Build assets**  
+   ```bash
+   npm run dev
+   ```
+8. **Serve**  
+   ```bash
+   php artisan serve
+   ```
+   Open http://127.0.0.1:8000
+
+## 👤 Author
+Created by [Yuksel Celik](https://github.com/celikyuksell)  
+Explore more tutorials on [YouTube](https://www.youtube.com/c/yukselcelik)
